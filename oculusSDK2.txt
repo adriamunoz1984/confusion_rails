@@ -1,0 +1,29 @@
+So like many of you, I was unable to use my DK2 with my laptop. After taking some time to really dive in and see what the problem was, I was able to figure out a way to get it working in Extended mode with Positional Tracking. Here are the exact steps I took. If you're going to try the following steps, do not skip any of them no matter how trivial they sound. Post your results below!
+
+1. Uninstall The Runtime (if you have not done already) and reboot.
+2. Reinstall the runtime (but do NOT plug in your Rift)
+3. Reboot (everything should be fine so far)
+4. Go to this location: C:\Windows\System32\DriverStore\FileRepository\riftenabler.inf_amd64_neutral_91395412451e34f6
+5. Right click on RiftEnabler.inf and choose Install
+6. Check your registry @ HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Class\{4D36E968-E325-11CE-BFC1-08002BE10318}
+7. It should now say "UpperFilters" ... "RiftEnabler" and should NOT have a key for "LowerFilters". If it does, delete it.
+8. Reboot again.
+9. Plug in the Rift only (NOT the camera - disconnect the sync cable from the Rift's "Control box" as well)
+10. Open up the Oculus Config Utility and switch the Rift's mode to Extended Monitor mode. Your computer should now recognize your Rift as a monitor.
+11. Now go to Device Manager and expand "Monitors". The Rift should be displaying as "Generic PnP Monitor". Right click it and go to properties > Driver and it should have the Author as Microsoft. If its any other Author (ie logmein or Teamviewer) Hit Update Driver>Browse my Computer > Let me pick > and Choose the Generic PnP for Microsoft from there.
+12. Inside Oculus Config Utility, it should recognize your Rift's serial number. If it says HMD not connected, then you either didn't follow my steps correctly, or you need to try another USB port. If your Rift isn't recognized don't bother continuing with the rest of these steps.
+13. Now that the Rift is connected, plug in the camera via USB (Do NOT plug in the Sync cable yet)
+14. Go back to Device manager, locate the camera under imaging devices , Right click > Properties > power management > uncheck allow computer to turn off to conserve power.
+15. If it's not showing as connected, restart the service - I recommend using my program since it's a lot easier to do.
+16. If it's still not showing, you either did not follow my steps or you need to plug it into another USB port, probably a powered USB hub. If this step isn't working then there is no point in continuing further.
+17. Now that the camera is showing up, launch the oculus demo from within the config. It should work in "DK1" mode - no positional tracking - which is perfect.
+18. Now, while STILL IN GAME, plug the sync cable into the Rift's cable. Positional tracking should now work. If there is no positional tracking, try leaving the game and relaunching it. If it still does not work, restart the services and try again.
+
+So far these steps have fixed extended mode for me, even across reboots. Please note though, if your laptop goes to sleep you will need to unplug the rift and the camera, and replug them back in for it to work again.
+[Obsolete] Oculus Service Manager - https://developer.oculusvr.com/forums/viewtopic.php?f=26&t=11395
+[Unofficial] VR Game Manager - viewtopic.php?f=26&t=12754
+bilago
+ 
+Posts: 399
+Joined: May 8th, 2014, 6:24 am
+Website: http://www.Riftmax.com
